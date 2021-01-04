@@ -5,7 +5,7 @@ Use proyectoFinalHACKABOSS;
 
 
 create table usuario (
-  idusuario tinyint(6) not null primary key,
+  idusuario int(6) not null primary key,
   admin boolean not null default false,
   nombreusuario varchar(20) not null,
   apel1 varchar (40) not null,
@@ -16,16 +16,16 @@ create table usuario (
 
 
 create table tarjeta (
-  idtarjeta tinyint(6) not null primary key,
+  idtarjeta int(6) not null primary key,
   numerotarjeta varchar(19)  not null,
-  idusuario tinyint (6) not null,
+  idusuario int (6) not null,
   fechaExpiracion varchar(5) not null,
   csv int(3) not null,
   constraint `fk_UsuarioTarjeta` FOREIGN KEY (`idusuario` ) REFERENCES `proyectoFinalHACKABOSS`.`usuario` (`idusuario` )
 );
 
 create table categoria (
-  idcategoria tinyint(6) not null primary key,
+  idcategoria int(6) not null primary key,
   nombrecategoria varchar(20),
   descripcioncategoria varchar (60)
 );
@@ -33,9 +33,9 @@ create table categoria (
 
 
 create table libro (
-  idlibro tinyint(6) not null primary key,
-  idcategoria tinyint(6) not null,
-  idusuario tinyint(6) not null,
+  idlibro int(6) not null primary key,
+  idcategoria int(6) not null,
+  idusuario int(6) not null,
   titulo varchar(40) not null unique,
   stock int not null default 0,
   precio float(8,2),
@@ -45,8 +45,8 @@ create table libro (
 
 
 Create table reserva (
-    idusuario tinyint(6) not null,
-    idlibro tinyint(6) not null,
+    idusuario int(6) not null,
+    idlibro int(6) not null,
     fechareserva datetime,
     fechadevolucion datetime,
     primary key (idusuario,idlibro,fechareserva),
@@ -56,8 +56,8 @@ Create table reserva (
 
 
 create table autor (
-  idautor tinyint(6)  not null primary key,
-  idlibro tinyint (6) not null,
+  idautor int(6)  not null primary key,
+  idlibro int (6) not null,
   nombreautor varchar(40) not null,
   apel1 varchar(20) not null,
   apel2 varchar (20) null,
@@ -66,8 +66,8 @@ create table autor (
 
 
 create table factura (
-  idfactura tinyint(6)  not null primary key,
-  idusuario tinyint(6) not null references usuario (idusuario),
+  idfactura int(6)  not null primary key,
+  idusuario int(6) not null references usuario (idusuario),
   fecha datetime,
   iva float(4,2),
   precioenvio float (4,2),
@@ -77,9 +77,9 @@ constraint `fk_UsuarioFactura` FOREIGN KEY (`idusuario` ) REFERENCES `proyectoFi
 
 
 create table detalle ( 
-  idfactura tinyint(6) not null references factura(idfactura),
-  iddetalle tinyint(6) unsigned not null, 
-  idlibro tinyint(6) references libro(idlibro),
+  idfactura int(6) not null references factura(idfactura),
+  iddetalle int(6) unsigned not null, 
+  idlibro int(6) references libro(idlibro),
   precio float (8,2), 
   primary key (idfactura,iddetalle),
   constraint `fk_LibroDetalle` FOREIGN KEY (`idlibro` ) REFERENCES `proyectoFinalHACKABOSS`.`libro` (`idlibro`),
@@ -105,4 +105,6 @@ INSERT INTO `proyectofinalhackaboss`.`factura` (`idfactura`, `idusuario`, `fecha
 INSERT INTO `proyectofinalhackaboss`.`detalle` (`idfactura`, `iddetalle`, `idlibro`, `precio`) VALUES ('1', '1', '1', '20.0');
 INSERT INTO `proyectofinalhackaboss`.`detalle` (`idfactura`, `iddetalle`, `idlibro`, `precio`) VALUES ('1', '2', '1', '30.0');
 INSERT INTO `proyectofinalhackaboss`.`detalle` (`idfactura`, `iddetalle`, `idlibro`, `precio`) VALUES ('1', '3', '1', '50.0');
+
+
 
