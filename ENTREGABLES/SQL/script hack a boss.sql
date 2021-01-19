@@ -12,7 +12,7 @@ create table usuario (
   contraseña varchar (40) not null,
   apel1 varchar (40) not null,
   apel2 varchar (40) not null,
-  email varchar(40) not null,
+  email varchar(40) not null unique,
   codFoto varchar (20) null
   
 )
@@ -121,6 +121,7 @@ INSERT INTO `proyectofinalhackaboss`.`factura` (`idfactura`, `idusuario`, `fecha
 INSERT INTO `proyectofinalhackaboss`.`detalle` (`idfactura`, `iddetalle`, `idlibro`, `precio`) VALUES ('1', '1', '1', '20.0');
 INSERT INTO `proyectofinalhackaboss`.`detalle` (`idfactura`, `iddetalle`, `idlibro`, `precio`) VALUES ('1', '2', '1', '30.0');
 INSERT INTO `proyectofinalhackaboss`.`detalle` (`idfactura`, `iddetalle`, `idlibro`, `precio`) VALUES ('1', '3', '1', '50.0');
+
 
 
 
