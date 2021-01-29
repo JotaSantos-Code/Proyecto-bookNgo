@@ -24,4 +24,26 @@ async function findBookByAuthor (nombreAutor) {
     const [books] = await pool.query(query,nombreAutor);
     return books;
 }
-module.exports={readAll,findByName,findBookByAuthor};
+
+async function findBookByCategory(nombreCategoria) {
+    const pool = await database.getPool();
+    const query = 'SELECT l.* FROM proyectoFinalHACKABOSS.libro l inner join categoria c on l.idcategoria=c.idcategoria where c.nombrecategoria=?';
+    const [books] = await pool.query(query,nombreCategoria);
+    return books;
+}
+
+async function findBookByEditorial (nombreEditorial) {
+    const pool = await database.getPool();
+    const query = 'SELECT l.* FROM proyectoFinalHACKABOSS.libro l where l.editorial=?';
+    const [books] = await pool.query(query,nombreEditorial);
+    return books;
+}
+
+async function findBookByYearPublication(añoPublicacion) {
+    const pool = await database.getPool();
+    console.log(añoPublicacion);
+    const query = 'SELECT l.* FROM proyectoFinalHACKABOSS.libro l where l.añopublicacion=?';
+    const [books] = await pool.query(query,añoPublicacion);
+    return books;
+}
+module.exports={readAll,findByName,findBookByAuthor,findBookByCategory,findBookByEditorial,findBookByYearPublication};

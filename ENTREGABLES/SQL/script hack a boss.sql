@@ -49,6 +49,8 @@ create table libro (
   titulo varchar(40) not null unique,
   stock int not null default 0,
   precio float(8,2),
+  editorial varchar(40) not null,
+  añopublicacion int (6) not null,
   constraint `fk_Categoria` FOREIGN KEY (`idcategoria` ) REFERENCES `proyectoFinalHACKABOSS`.`categoria` (`idcategoria` ) on delete restrict,
   constraint `fk_Usuario` FOREIGN KEY (`idusuario` ) REFERENCES `proyectoFinalHACKABOSS`.`usuario` (`idusuario` ),
   constraint `fk_Autor` FOREIGN KEY (`idautor` ) REFERENCES `proyectoFinalHACKABOSS`.`autor` (`idautor` )
@@ -108,8 +110,8 @@ INSERT INTO proyectoFinalHACKABOSS.categoria values (2,"Fantasia","Categoria des
 INSERT INTO proyectoFinalHACKABOSS.categoria values (3,"Aventura","Categoria destinada a los libros de aventura");
 INSERT INTO proyectoFinalHACKABOSS.autor values (1,"Miguel","Cervantes","Saavedra");
 INSERT INTO proyectoFinalHACKABOSS.autor values (2,"Joanne","Rowling","Rowling");
-INSERT INTO proyectoFinalHACKABOSS.libro values (1,1,1,1,"Don Quijote de la Mancha",3,20);
-INSERT INTO proyectoFinalHACKABOSS.libro values (2,1,2,1,"Harry Potter",2,20);
+INSERT INTO proyectoFinalHACKABOSS.libro values (1,1,1,1,"Don Quijote de la Mancha",3,20,"Santillana",2003);
+INSERT INTO proyectoFinalHACKABOSS.libro values (2,1,2,1,"Harry Potter",2,20,"Santillana",2006);
 INSERT INTO proyectoFinalHACKABOSS.tarjeta values (1,"4000 1234 5673 9875",1,"04/21",343);
 
 INSERT INTO proyectoFinalHACKABOSS.reserva values (1,1,"1996-07-10",null,5);
