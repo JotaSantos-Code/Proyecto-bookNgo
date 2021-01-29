@@ -22,3 +22,5 @@
 ::1 - - [28/Jan/2021:20:30:08 +0000] "GET /api/v1/books/title/Harry%20Potter HTTP/1.1" 200 91 "-" "PostmanRuntime/7.26.8"
 ::1 - - [28/Jan/2021:20:31:19 +0000] "GET /api/v1/books/author/Joanne HTTP/1.1" 400 38 "-" "PostmanRuntime/7.26.8"
 ::1 - - [28/Jan/2021:20:32:21 +0000] "GET /api/v1/books/author/Joanne HTTP/1.1" 200 91 "-" "PostmanRuntime/7.26.8"
+::1 - - [29/Jan/2021:10:10:50 +0000] "GET /api/v1/books/author/Joanne HTTP/1.1" 400 55 "-" "PostmanRuntime/7.26.8"
+::1 - - [29/Jan/2021:10:13:21 +0000] "GET /api/v1/books/author/Miguel HTTP/1.1" 200 193 "-" "PostmanRuntime/7.26.8"

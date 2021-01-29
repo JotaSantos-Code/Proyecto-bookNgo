@@ -20,7 +20,7 @@ async function findByName (nombre) {
 
 async function findBookByAuthor (nombreAutor) {
     const pool = await database.getPool();
-    const query = 'select l.idlibro,l.idcategoria,l.idusuario,l.titulo,l.stock,l.precio from libro l inner join autor aut on l.idlibro = aut.idlibro where aut.nombreautor=?';
+    const query = 'select l.idlibro,l.idcategoria,l.idusuario,l.titulo,l.stock,l.precio from libro l inner join autor aut on l.idautor = aut.idautor where aut.nombreautor=?';
     const [books] = await pool.query(query,nombreAutor);
     return books;
 }
